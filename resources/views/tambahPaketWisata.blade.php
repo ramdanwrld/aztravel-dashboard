@@ -288,13 +288,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <h1 class="h3 mb-2 text-gray-800">Form Tambah Data Paket Wisata</h1>
-                    <form methods="POST" action="addClass.php">
-                        <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label">Id Paket Wisata</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputEmail3" name="id_paket_wisata">
-                            </div>
-                        </div>
+                    <form method="POST" action="/tambahPaketWisata/store">
                         <div class="form-group row">
                             <label for="inputPassword3" class="col-sm-2 col-form-label">Nama Paket Wisata</label>
                             <div class="col-sm-10">

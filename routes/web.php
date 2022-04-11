@@ -30,7 +30,10 @@ Auth::routes();
 #});
 Route::get('/paketwisata', [paketWisataController::class, 'index']);
 Route::post('/paketwisata/store', [paketWisataController::class, 'store']);
+Route::post('/tambahPaketWisata/store', [paketWisataController::class, 'store']);
 #Route::post('/paketwisata/store','App\Http\Controllers\paketWisataController@store');
+Route::post('/paketwisata/update', [paketWisataController::class, 'update']);
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

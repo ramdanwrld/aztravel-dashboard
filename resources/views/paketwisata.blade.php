@@ -294,7 +294,7 @@
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                Tambah
+                                Tambah Paket Wisata
                               </button>
                             <!--<a href="tambahPaketWisata" class="btn btn-primary">Tambah Data</a>-->
                             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -308,18 +308,12 @@
                                         <form action="/paketwisata/store" method="post">
                                             {{ csrf_field() }}
                                             <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">ID PAKET WISATA </label><br><br>
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" name="kode" placeholder="">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label">NAMA PAKET WISATA </label><br><br>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control" name="nama" placeholder="">
+                                                    <input type="text" class="form-control" name="nama_paket_wisata" placeholder="">
                                                 </div>
                                             </div>
-                                            <input type="submit" class="btn btn-success" value="Simpan Data">
+                                            <input type="submit" class="btn btn-primary" value="Simpan Data">
                                             <a href="/paketwisata"> 
                                                 <button type="button" class="btn btn-primary">Kembali</button>
                                             </a>
@@ -335,7 +329,6 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead class="table table-borderless">
                                         <tr>
-                                            <th scope="col">id_paket_wisata</th>
                                             <th scope="col">nama_paket_wisata </th>
                                             <th scope="col">Ubah</th>
                                             <th scope="col">Hapus</th>
@@ -344,7 +337,6 @@
                                     <tbody>
                                     @foreach($paket_wisata as $pw)
                                     <tr>
-                                        <td>{{ $pw->id_paket_wisata }}</td>
                                         <td>{{ $pw->nama_paket_wisata }}</td>
                                         <td>
                                             <a href="/paketwisata/edit/{{ $pw->kode }}">

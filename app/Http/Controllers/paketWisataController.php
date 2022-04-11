@@ -32,17 +32,16 @@ class paketWisataController extends Controller
 	{
 		// insert data ke table obat
 		$this->validate($request,[
-			'id_paket_wisata' => 'required',
 			'nama_paket_wisata' => 'required',
 		]);
 
 		DB::table('paket_wisata')->insert([
-			'id_paket_wisata' => $request->kode,
-			'nama_paket_wisata' => $request->nama,
+			'nama_paket_wisata' => $request->nama_paket_wisata,
 		]);
-		// alihkan halaman ke halaman obat
-		return redirect('/paketWisata');
- 
+
+	// alihkan halaman ke halaman obat
+		return redirect('/paketwisata');
+		
 	}
  
 	// method untuk edit data obat
@@ -59,12 +58,11 @@ class paketWisataController extends Controller
 	public function update(Request $request)
 	{
 		// update data obat
-		DB::table('paket_wisata')->where('id_paket_wisata',$request->id)->update([
-			'id_paket_wisata' => $request->kode,
-			'nama_paket_wisata' => $request->nama,
+		DB::table('paket_wisata')->where('id_paket_wisata',$request->id_paket_wisata)->update([
+			'nama_paket_wisata' => $request->nama_paket_wisata,
 		]);
 		// alihkan halaman ke halaman obat
-		return redirect('/obat');
+		return redirect('/paketwisata');
 	}
  
 	// method untuk hapus data obat
