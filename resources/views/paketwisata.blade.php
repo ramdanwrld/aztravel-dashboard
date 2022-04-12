@@ -370,8 +370,9 @@
                                           </div>
                                     </div>
                                         <td>
-                                        <a href="/paketwisata/hapus/{{ $pw->id_paket_wisata }}">
-                                        <button type="button" class="btn btn-danger" style="color:black !important;">Hapus</button></a>
+                                        <a href="/paketwisata/hapus/{{ $pw->id_paket_wisata }}" onclick="return confirm('Anda yakin mau menghapus item ini ?')">
+                                            <button type="button" class="btn btn-danger" style="color:black !important;">Hapus</button></a>
+                                        </a>
                                         </td>
                                     </tr>
                                     @endforeach
