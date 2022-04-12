@@ -314,19 +314,9 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">NAMA DESTINASI WISATA 1</label><br><br>
+                                                <label class="col-sm-2 col-form-label">NAMA DESTINASI WISATA</label><br><br>
                                                 <div class="col-sm-10">
-                                                    <select class="form-select" aria-label="Default select example">
-                                                        @foreach($destinasi_wisata as $dw)
-                                                        <option value={{ $dw->id_destinasi_wisata }}>{{ $dw->nama_destinasi_wisata }}</option>
-                                                        @endforeach
-                                                      </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">NAMA DESTINASI WISATA 2</label><br><br>
-                                                <div class="col-sm-10">
-                                                    <select class="form-select" aria-label="Default select example">
+                                                    <select class="form-select" aria-label="Default select example" name="id_destinasi_wisata">
                                                         @foreach($destinasi_wisata as $dw)
                                                         <option value={{ $dw->id_destinasi_wisata }}>{{ $dw->nama_destinasi_wisata }}</option>
                                                         @endforeach
@@ -350,20 +340,17 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead class="table table-borderless">
                                         <tr>
-                                            <th scope="col">nama_paket_wisata </th>
-                                            <th scope="col">Destinasi Wisata 1 </th>
-                                            <th scope="col">Destinasi Wisata 2 </th>
+                                            <th scope="col">Nama Paket Wisata </th>
+                                            <th scope="col">Destinasi Wisata</th>
                                             <th scope="col">Ubah</th>
                                             <th scope="col">Hapus</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($paket_wisata as $pw)
-                                    @foreach($paket_wisata as $pw)
+                                    @foreach($detailwisata as $pw)
                                     <tr>
                                         <td>{{ $pw->nama_paket_wisata }}</td>
-                                        <td>
-                                        <td>
+                                        <td>{{ $pw->nama_destinasi_wisata }}<td>
                                             <a button type="button" class="btn btn-warning" style="color:black !important;"
                                             data-bs-toggle="modal" data-bs-target="#editModal{{ $pw->id_paket_wisata }}">Edit</button></a>
                                         </td>
@@ -384,6 +371,16 @@
                                                                 <input type="text" class="form-control" name="nama_paket_wisata" value={{ $pw->nama_paket_wisata }}>
                                                             </div>
                                                         </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-2 col-form-label">NAMA DESTINASI WISATA</label><br><br>
+                                                            <div class="col-sm-10">
+                                                                <select class="form-select" aria-label="Default select example" name="id_destinasi_wisata">
+                                                                    @foreach($destinasi_wisata as $dw)
+                                                                    <option value={{ $dw->id_destinasi_wisata }}>{{ $dw->nama_destinasi_wisata }}</option>
+                                                                    @endforeach
+                                                                  </select>
+                                                            </div>
+                                                        </div>
                                                         <input type="submit" class="btn btn-primary" value="Simpan Data">
                                                         <a href="/paketwisata"> 
                                                             <button type="button" class="btn btn-primary">Kembali</button>
@@ -395,7 +392,7 @@
                                           </div>
                                     </div>
                                         <td>
-                                        <a href="/paketwisata/hapus/{{ $pw->id_paket_wisata }}" onclick="return confirm('Anda yakin mau menghapus item ini ?')">
+                                        <a href="/paketwisata/hapus/{{ $pw->id }}" onclick="return confirm('Anda yakin mau menghapus item ini ?')">
                                             <button type="button" class="btn btn-danger" style="color:black !important;">Hapus</button></a>
                                         </a>
                                         </td>

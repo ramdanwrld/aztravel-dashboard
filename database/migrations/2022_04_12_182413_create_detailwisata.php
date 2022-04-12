@@ -13,9 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('paket_wisata', function (Blueprint $table) {
-            $table->increments('id_paket_wisata')->start_from(1);
-            $table->string('nama_paket_wisata');
+        Schema::create('detailwisata', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+            $table->string('id_paket_wisata');
+            $table->string('id_destinasi_wisata');
         });
     }
 
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('paket_wisata');
+        Schema::dropIfExists('detailwisata');
     }
 };
