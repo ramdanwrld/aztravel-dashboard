@@ -23,7 +23,6 @@ class paketWisataController extends Controller
 	{
  
 		// memanggil view tambah
-		return view('tambahPaketWisata');
  
 	}
  

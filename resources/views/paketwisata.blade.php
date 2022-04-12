@@ -58,7 +58,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="paketwisata">Paket Wisata</a>
-                        <a class="collapse-item" href="destinasi.php">Destinasi</a>
+                        <a class="collapse-item" href="destinasi">Destinasi</a>
                     </div>
                 </div>
             </li>

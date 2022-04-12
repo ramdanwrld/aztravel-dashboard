@@ -13,10 +13,9 @@
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
@@ -31,7 +30,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard">
                 
                 <div class="sidebar-brand-text mx-3">AZ TRAVEL </div>
             </a>
@@ -41,7 +40,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="index.php">
+                <a class="nav-link" href="dashboard">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -58,8 +57,8 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="paketWisata.php">Paket Wisata</a>
-                        <a class="collapse-item" href="destinasi.php">Destinasi</a>
+                        <a class="collapse-item" href="paketwisata">Paket Wisata</a>
+                        <a class="collapse-item" href="destinasi">Destinasi</a>
                     </div>
                 </div>
             </li>
@@ -288,47 +287,111 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                <h1 class="h3 mb-2 text-gray-800">Tabel Destinasi</h1>
+                <h1 class="h3 mb-2 text-gray-800">Tabel Destinasi Wisata</h1>
                     
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <button type="button" class="btn btn-primary">Tambah Data</button>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Tambah Destinasi Wisata
+                              </button>
+                            <!--<a href="tambahPaketWisata" class="btn btn-primary">Tambah Data</a>-->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLabel">TAMBAH DESTINASI WISATA</h5>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="/destinasiwisata/store" method="post">
+                                            {{ csrf_field() }}
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">NAMA DESTINASI WISATA </label><br><br>
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control" name="nama_destinasi_wisata" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">LOKASI DESTINASI WISATA </label><br><br>
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control" name="lokasi_destinasi_wisata" >
+                                                </div>
+                                            </div>
+                                            <input type="submit" class="btn btn-primary" value="Simpan Data">
+                                            <a href="/destinasiwisata"> 
+                                                <button type="button" class="btn btn-primary">Kembali</button>
+                                            </a>
+                                        </form>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                         </div>
+                        
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
+                                    <thead class="table table-borderless">
+                                        <tbody>
                                         <tr>
-                                            <td>No</td>
-                                            <th>Id Destinasi</th>
-                                            <th>Nama Destinasi</th>
-                                            <th>Lokasi Destinasi</th>
-                                            <th>Harga Destinasi</th>
-                                            <th>Opsi</th>
+                                            <th scope="col">nama_destinasi_wisata </th>
+                                            <th scope="col">lokasi_destinasi_wisata </th>
+                                            <th scope="col">Ubah</th>
+                                            <th scope="col">Hapus</th>
                                         </tr>
                                     </thead>
-                                    <?php
-                                    include 'koneksiDB.php';
-                                    $i = 1;
-                                    $data = mysqli_query($koneksi, "SELECT * FROM destinasi");
-                                    while($d = mysqli_fetch_array($data)) {
-                                    ?>
-                                        <tr>
-                                            <td><?php echo $i++; ?></td>
-                                            <th><?php echo $d['id_destinasi']; ?></th>
-                                            <th><?php echo $d['nama_destinasi']; ?></th>
-                                            <th><?php echo $d['lokasi_destinasi']; ?></th>
-                                            <th><?php echo $d['harga_destinasi']; ?></th>
-                                            <th>
-                                                <a href="#" class="btn btn-success">Edit</a>
-                                                <a href="#" class="btn btn-danger">Hapus</a>
-                                            </th>
-                                        </tr>
-                                        <?php
-                                          }
-                                        ?>
+                                    <tbody>
+                                    @foreach($destinasi_wisata as $dw)
+                                    <tr>
+                                        <td>{{ $dw->nama_destinasi_wisata }}</td>
+                                        <td>{{ $dw->lokasi_destinasi_wisata }}</td>
+                                        <td>
+                                            <a button type="button" class="btn btn-warning" style="color:black !important;"
+                                            data-bs-toggle="modal" data-bs-target="#editModal{{ $dw->id_destinasi_wisata }}">Edit</button></a>
+                                        </td>
+                                        <div class="modal fade" id="editModal{{ $dw->id_destinasi_wisata }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                              <div class="modal-content">
+                                                <div class="modal-header">
+                                                  <h5 class="modal-title" id="exampleModalLabel">EDIT</h5>
+                                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form action="/destinasiwisata/update" method="post">
+                                                        {{ csrf_field() }}
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-2 col-form-label">NAMA DESTINASI WISATA </label><br><br>
+                                                            <input type="hidden" class="form-control" name="id_destinasi_wisata" value={{ $dw->id_destinasi_wisata }}>
+                                                            <div class="col-sm-10">
+                                                                <input type="text" class="form-control" name="nama_destinasi_wisata" value={{ $dw->nama_destinasi_wisata }}>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-2 col-form-label">LOKASI DESTINASI WISATA </label><br><br>
+                                                            <input type="hidden" class="form-control" name="id_destinasi_wisata" value={{ $dw->id_destinasi_wisata }}>
+                                                            <div class="col-sm-10">
+                                                                <input type="text" class="form-control" name="nama_destinasi_wisata" value={{ $dw->nama_destinasi_wisata }}>
+                                                            </div>
+                                                        </div>
+                                                        <input type="submit" class="btn btn-primary" value="Simpan Data">
+                                                        <a href="/destinasiwisata"> 
+                                                            <button type="button" class="btn btn-primary">Kembali</button>
+                                                        </a>
+                                                    </form>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                    </div>
+                                        <td>
+                                        <a href="/destinasiwisata/hapus/{{ $dw->id_destinasi_wisata }}" onclick="return confirm('Anda yakin mau menghapus item ini ?')">
+                                            <button type="button" class="btn btn-danger" style="color:black !important;">Hapus</button></a>
+                                        </a>
+                                        </td>
+                                    </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -386,7 +449,7 @@
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
