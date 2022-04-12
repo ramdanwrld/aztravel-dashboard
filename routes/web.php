@@ -33,6 +33,9 @@ Route::post('/paketwisata/store', [paketWisataController::class, 'store']);
 Route::post('/tambahPaketWisata/store', [paketWisataController::class, 'store']);
 #Route::post('/paketwisata/store','App\Http\Controllers\paketWisataController@store');
 Route::post('/paketwisata/update', [paketWisataController::class, 'update']);
+Route::get('/paketwisata/edit/{id_paket_wisata}',[paketWisataController::class, 'edit']);
+Route::get('/paketwisata/hapus/{id_paket_wisata}', [paketWisataController::class, 'hapus']);
+#Route::get('/paketwisata/hapus/{id_paket_wisata}','paketWisataController@hapus');
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

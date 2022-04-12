@@ -288,7 +288,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <h1 class="h3 mb-2 text-gray-800">Form Tambah Data Paket Wisata</h1>
-                    <form method="POST" action="/tambahPaketWisata/store">
+                    <form method="POST" action="/paketwisata/store">
                         <div class="form-group row">
                             <label for="inputPassword3" class="col-sm-2 col-form-label">Nama Paket Wisata</label>
                             <div class="col-sm-10">

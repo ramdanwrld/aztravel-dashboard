@@ -45,12 +45,12 @@ class paketWisataController extends Controller
 	}
  
 	// method untuk edit data obat
-	public function edit($id)
+	public function edit($id_paket_wisata)
 	{
 		// mengambil data obat berdasarkan id yang dipilih
-		$obat = DB::table('paket_wisata')->where('id_paket_wisata',$id)->get();
+		$paket_wisata = DB::table('paket_wisata')->where('id_paket_wisata',$id_paket_wisata)->get();
 		// passing data obat yang didapat ke view edit.blade.php
-		return view('edit',['obat' => $obat]);
+		return view('paketwisata',['paket_wisata' => $paket_wisata]);
  
 	}
  
@@ -66,12 +66,12 @@ class paketWisataController extends Controller
 	}
  
 	// method untuk hapus data obat
-	public function hapus($id)
+	public function hapus($id_paket_wisata)
 	{
 		// menghapus data obat berdasarkan id yang dipilih
-		DB::table('paket_wisata')->where('kode',$id)->delete();
+		DB::table('paket_wisata')->where('id_paket_wisata',$id_paket_wisata)->delete();
 		
 		// alihkan halaman ke halaman obat
-		return redirect('/obat');
+		return redirect('/paketwisata');
 	}
 }
