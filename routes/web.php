@@ -4,6 +4,7 @@ use App\Http\Controllers\destinasiController;
 use App\Http\Controllers\destinasiWisataController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\paketWisataController;
+use App\Http\Controllers\dashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +20,7 @@ use App\Http\Controllers\paketWisataController;
 Route::get('/login', function () {
     return view('welcome');
 });
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
+Route::get('/dashboard', [dashboardController::class, 'index']);
 
 
 ##Auth::routes();
