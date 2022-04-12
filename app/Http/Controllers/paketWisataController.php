@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\paket_wisata;
+use App\Models\destinasi_wisata;
 
 class paketWisataController extends Controller
 {
@@ -12,9 +13,10 @@ class paketWisataController extends Controller
 	{
     	// mengambil data dari table obat
 		$paket_wisata = paket_wisata::all();
+		$destinasi_wisata = destinasi_wisata::all();
  
     	// mengirim data obat ke view index
-		return view('paketWisata',['paket_wisata' => $paket_wisata]);
+		return view('paketWisata',['paket_wisata' => $paket_wisata,'destinasi_wisata' => $destinasi_wisata]);
  
 	}
  

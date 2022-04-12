@@ -58,7 +58,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="paketwisata">Paket Wisata</a>
-                        <a class="collapse-item" href="destinasi">Destinasi</a>
+                        <a class="collapse-item" href="destinasiwisata">Destinasi</a>
                     </div>
                 </div>
             </li>
@@ -372,7 +372,7 @@
                                                             <label class="col-sm-2 col-form-label">LOKASI DESTINASI WISATA </label><br><br>
                                                             <input type="hidden" class="form-control" name="id_destinasi_wisata" value={{ $dw->id_destinasi_wisata }}>
                                                             <div class="col-sm-10">
-                                                                <input type="text" class="form-control" name="nama_destinasi_wisata" value={{ $dw->nama_destinasi_wisata }}>
+                                                                <textarea class="form-control" name="lokasi_destinasi_wisata">{{ $dw->lokasi_destinasi_wisata }}</textarea>
                                                             </div>
                                                         </div>
                                                         <input type="submit" class="btn btn-primary" value="Simpan Data">

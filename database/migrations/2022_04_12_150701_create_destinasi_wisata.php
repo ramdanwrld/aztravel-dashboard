@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('destinasi_wisata', function (Blueprint $table) {
-            $table->integer('id_destinasi_wisata');
+            $table->increments('id_destinasi_wisata')->start_from(1);
             $table->string('nama_destinasi_wisata');
             $table->string('lokasi_destinasi_wisata');
         });

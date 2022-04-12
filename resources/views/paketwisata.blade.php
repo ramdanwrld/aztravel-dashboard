@@ -58,7 +58,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="paketwisata">Paket Wisata</a>
-                        <a class="collapse-item" href="destinasi">Destinasi</a>
+                        <a class="collapse-item" href="destinasiwisata">Destinasi</a>
                     </div>
                 </div>
             </li>
@@ -313,6 +313,27 @@
                                                     <input type="text" class="form-control" name="nama_paket_wisata" placeholder="">
                                                 </div>
                                             </div>
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">NAMA DESTINASI WISATA 1</label><br><br>
+                                                <div class="col-sm-10">
+                                                    <select class="form-select" aria-label="Default select example">
+                                                        @foreach($destinasi_wisata as $dw)
+                                                        <option value={{ $dw->id_destinasi_wisata }}>{{ $dw->nama_destinasi_wisata }}</option>
+                                                        @endforeach
+                                                      </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">NAMA DESTINASI WISATA 2</label><br><br>
+                                                <div class="col-sm-10">
+                                                    <select class="form-select" aria-label="Default select example">
+                                                        @foreach($destinasi_wisata as $dw)
+                                                        <option value={{ $dw->id_destinasi_wisata }}>{{ $dw->nama_destinasi_wisata }}</option>
+                                                        @endforeach
+                                                      </select>
+                                                </div>
+                                            </div>
+                                            
                                             <input type="submit" class="btn btn-primary" value="Simpan Data">
                                             <a href="/paketwisata"> 
                                                 <button type="button" class="btn btn-primary">Kembali</button>
@@ -330,14 +351,18 @@
                                     <thead class="table table-borderless">
                                         <tr>
                                             <th scope="col">nama_paket_wisata </th>
+                                            <th scope="col">Destinasi Wisata 1 </th>
+                                            <th scope="col">Destinasi Wisata 2 </th>
                                             <th scope="col">Ubah</th>
                                             <th scope="col">Hapus</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($paket_wisata as $pw)
+                                    @foreach($paket_wisata as $pw)
                                     <tr>
                                         <td>{{ $pw->nama_paket_wisata }}</td>
+                                        <td>
                                         <td>
                                             <a button type="button" class="btn btn-warning" style="color:black !important;"
                                             data-bs-toggle="modal" data-bs-target="#editModal{{ $pw->id_paket_wisata }}">Edit</button></a>

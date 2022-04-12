@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('paket_wisata', function (Blueprint $table) {
             $table->increments('id_paket_wisata')->start_from(1);
             $table->string('nama_paket_wisata');
-            
+            $table->string('destinasi_wisata_1');
+            $table->string('destinasi_wisata_2');
         });
     }
 
