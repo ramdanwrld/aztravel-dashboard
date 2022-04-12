@@ -24,7 +24,7 @@ Route::get('/tambahPaketWisata', function () {
     return view('tambahPaketWisata');
 });
 
-Auth::routes();
+##Auth::routes();
 #Route::get('/paketWisata', function () {
     #return view('paketWisata');
 #});

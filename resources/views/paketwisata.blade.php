@@ -339,11 +339,10 @@
                                     <tr>
                                         <td>{{ $pw->nama_paket_wisata }}</td>
                                         <td>
-                                            <!--<a href="/paketwisata/update/{{ $pw->id_paketwisata }}"-->
                                             <a button type="button" class="btn btn-warning" style="color:black !important;"
-                                            data-bs-toggle="modal" data-bs-target="#editModal">Edit</button></a>
+                                            data-bs-toggle="modal" data-bs-target="#editModal{{ $pw->id_paket_wisata }}">Edit</button></a>
                                         </td>
-                                        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="editModal{{ $pw->id_paket_wisata }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                               <div class="modal-content">
                                                 <div class="modal-header">
@@ -351,12 +350,13 @@
                                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form action="/paketwisata/edit"{{ $pw->id_paket_wisata }} method="post">
+                                                    <form action="/paketwisata/update" method="post">
                                                         {{ csrf_field() }}
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">NAMA PAKET WISATA </label><br><br>
+                                                            <input type="hidden" class="form-control" name="id_paket_wisata" value={{ $pw->id_paket_wisata }}>
                                                             <div class="col-sm-10">
-                                                                <input type="text" class="form-control" name="nama_paket_wisata" placeholder="">
+                                                                <input type="text" class="form-control" name="nama_paket_wisata" value={{ $pw->nama_paket_wisata }}>
                                                             </div>
                                                         </div>
                                                         <input type="submit" class="btn btn-primary" value="Simpan Data">
