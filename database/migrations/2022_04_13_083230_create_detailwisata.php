@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('detailwisata', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('id_paket_wisata');
-            $table->string('id_destinasi_wisata');
+            $table->integer('id_paket_wisata');
+            $table->integer('id_destinasi_wisata');
         });
     }
 

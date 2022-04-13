@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\paket_wisata;
 use App\Models\destinasi_wisata;
 use App\Models\detailwisata;
-
+use App\Models\Image;
 class paketWisataController extends Controller
 {
     public function index()
@@ -39,10 +39,12 @@ class paketWisataController extends Controller
 		// insert data ke table obat
 		$this->validate($request,[
 			'nama_paket_wisata' => 'required',
+			'harga_paket_wisata' => 'required',
 		]);
 
 		$id = DB::table('paket_wisata')->insertGetId([
 			'nama_paket_wisata' => $request->nama_paket_wisata,
+			'harga_paket_wisata' => $request->harga_paket_wisata
 		]);
 
 		DB::table('detailwisata')->insert([
@@ -73,6 +75,7 @@ class paketWisataController extends Controller
 
 		DB::table('paket_wisata')->where('id_paket_wisata',$request->id_paket_wisata)->update([
 			'nama_paket_wisata' => $request->nama_paket_wisata,
+			'harga_paket_wisata' => $request->harga_paket_wisata
 		]);
 		DB::table('detailwisata')->where('id',$request->id)->update([
 			'id_paket_wisata' => $request->id_paket_wisata,

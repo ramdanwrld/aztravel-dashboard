@@ -23,7 +23,7 @@ Route::get('/login', function () {
 Route::get('/dashboard', [dashboardController::class, 'index']);
 
 
-##Auth::routes();
+Auth::routes();
 #Route::get('/paketWisata', function () {
     #return view('paketWisata');
 #});
@@ -40,6 +40,7 @@ Route::post('/destinasiwisata/update', [destinasiWisataController::class, 'updat
 Route::get('/destinasiwisata/edit/{id_destinasi_wisata}',[destinasiWisataController::class, 'edit']);
 Route::get('/destinasiwisata/hapus/{id_destinasi_wisata}', [destinasiWisataController::class, 'hapus']);
 
+Route::get('/konfirmasipesanan', [destinasiWisataController::class, 'index']);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 

@@ -58,7 +58,8 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="paketwisata">Paket Wisata</a>
-                        <a class="collapse-item" href="destinasiwisata">Destinasi</a>
+                        <a class="collapse-item" href="destinasi">Destinasi</a>
+                        <a class="collapse-item" href="konfirmasipesanan">Konfirmasi Pesanan</a>
                     </div>
                 </div>
             </li>
@@ -273,13 +274,6 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Az Travel. 2022</span>
-                    </div>
-                </div>
-            </footer>
             <!-- End of Footer -->
 
         </div>

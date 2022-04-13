@@ -58,8 +58,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="paketwisata">Paket Wisata</a>
-                        <a class="collapse-item" href="destinasi">Destinasi</a>
-                        <a class="collapse-item" href="konfirmasipesanan">Konfirmasi Pesanan</a>
+                        <a class="collapse-item" href="destinasiwisata">Destinasi</a>
                     </div>
                 </div>
             </li>
@@ -155,51 +154,40 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                <h1 class="h3 mb-2 text-gray-800">Tabel Paket Wisata</h1>
+                <h1 class="h3 mb-2 text-gray-800">Tabel Destinasi Wisata</h1>
                     
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                Tambah Paket Wisata
+                                Tambah Destinasi Wisata
                               </button>
                             <!--<a href="tambahPaketWisata" class="btn btn-primary">Tambah Data</a>-->
                             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                   <div class="modal-content">
                                     <div class="modal-header">
-                                      <h5 class="modal-title" id="exampleModalLabel">TAMBAH PAKET WISATA</h5>
+                                      <h5 class="modal-title" id="exampleModalLabel">TAMBAH DESTINASI WISATA</h5>
                                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="/paketwisata/store" method="post">
+                                        <form action="/destinasiwisata/store" method="post">
                                             {{ csrf_field() }}
                                             <div class="form-group row">
-                                                <label class="col-6">NAMA PAKET WISATA </label><br><br>
+                                                <label class="col-6">NAMA DESTINASI WISATA </label><br><br>
                                                 <div class="col-6">
-                                                    <input type="text" class="form-control" name="nama_paket_wisata" placeholder="">
+                                                    <input type="text" class="form-control" name="nama_destinasi_wisata" placeholder="">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-6">NAMA DESTINASI WISATA</label><br><br>
+                                                <label class="col-6">LOKASI DESTINASI WISATA </label><br><br>
                                                 <div class="col-6">
-                                                    <select class="form-select" aria-label="Default select example" name="id_destinasi_wisata">
-                                                        @foreach($destinasi_wisata as $dw)
-                                                        <option value={{ $dw->id_destinasi_wisata }}>{{ $dw->nama_destinasi_wisata }}</option>
-                                                        @endforeach
-                                                      </select>
+                                                    <input type="text" class="form-control" name="lokasi_destinasi_wisata" >
                                                 </div>
                                             </div>
-                                            <div class="form-group row">
-                                                <label class="col-6">HARGA RP.</label><br><br>
-                                                <div class="col-6">
-                                                    <input type="text" class="form-control" name="harga_paket_wisata" placeholder="">
-                                                </div>
-                                            </div>  
-                                            
                                             <input type="submit" class="btn btn-primary" value="Simpan Data">
-                                            <a href="/paketwisata"> 
+                                            <a href="/destinasiwisata"> 
                                                 <button type="button" class="btn btn-primary">Kembali</button>
                                             </a>
                                         </form>
@@ -213,25 +201,24 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead class="table table-borderless">
+                                        <tbody>
                                         <tr>
-                                            <th scope="col">Nama Paket Wisata </th>
-                                            <th scope="col">Destinasi Wisata</th>
-                                            <th scope="col">Harga</th>
+                                            <th scope="col">nama_destinasi_wisata </th>
+                                            <th scope="col">lokasi_destinasi_wisata </th>
                                             <th scope="col">Ubah</th>
                                             <th scope="col">Hapus</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($detailwisata as $pw)
+                                    @foreach($destinasi_wisata as $dw)
                                     <tr>
-                                        <td>{{$pw->nama_paket_wisata}}</td>
-                                        <td>{{$pw->nama_destinasi_wisata}}</td>
-                                        <td>{{$pw->harga_paket_wisata}}</td>
+                                        <td>{{ $dw->nama_destinasi_wisata }}</td>
+                                        <td>{{ $dw->lokasi_destinasi_wisata }}</td>
                                         <td>
                                             <a button type="button" class="btn btn-warning" style="color:black !important;"
-                                            data-bs-toggle="modal" data-bs-target="#editModal{{ $pw->id_paket_wisata }}">Edit</button></a>
+                                            data-bs-toggle="modal" data-bs-target="#editModal{{ $dw->id_destinasi_wisata }}">Edit</button></a>
                                         </td>
-                                        <div class="modal fade" id="editModal{{ $pw->id_paket_wisata }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="editModal{{ $dw->id_destinasi_wisata }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                               <div class="modal-content">
                                                 <div class="modal-header">
@@ -239,32 +226,24 @@
                                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form action="/paketwisata/update" method="post">
+                                                    <form action="/destinasiwisata/update" method="post">
                                                         {{ csrf_field() }}
                                                         <div class="form-group row">
-                                                            <label class="col-6">NAMA PAKET WISATA </label><br><br>
-                                                            <input type="hidden" class="form-control" name="id" value={{ $pw->id}}>
-                                                            <input type="hidden" class="form-control" name="id_paket_wisata" value={{ $pw->id_paket_wisata}}>
-                                                            <div class="col-6">
-                                                                <input type="text" class="form-control" name="nama_paket_wisata" value={{ $pw->nama_paket_wisata }}>
+                                                            <label class="col-sm-2 col-form-label">NAMA DESTINASI WISATA </label><br><br>
+                                                            <input type="hidden" class="form-control" name="id_destinasi_wisata" value={{ $dw->id_destinasi_wisata }}>
+                                                            <div class="col-sm-10">
+                                                                <input type="text" class="form-control" name="nama_destinasi_wisata" value={{ $dw->nama_destinasi_wisata }}>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-6 ">NAMA DESTINASI WISATA</label><br><br>
-                                                            <div class="col-6">
-                                                                <select class="form-select" aria-label="Default select example" name="id_destinasi_wisata">
-                                                                    @foreach($destinasi_wisata as $dw)
-                                                                    <?php if ($dw->id_destinasi_wisata == $pw->id_destinasi_wisata){ ?>
-                                                                    <option value={{ $pw->id_destinasi_wisata }} selected > {{ $pw->nama_destinasi_wisata }}</option>
-                                                                    <?php } else { ?>
-                                                                    <option value={{ $dw->id_destinasi_wisata }} > {{ $dw->nama_destinasi_wisata }}</option>
-                                                                    <?php } ?>
-                                                                    @endforeach
-                                                                  </select>
+                                                            <label class="col-sm-2 col-form-label">LOKASI DESTINASI WISATA </label><br><br>
+                                                            <input type="hidden" class="form-control" name="id_destinasi_wisata" value={{ $dw->id_destinasi_wisata }}>
+                                                            <div class="col-sm-10">
+                                                                <textarea class="form-control" name="lokasi_destinasi_wisata">{{ $dw->lokasi_destinasi_wisata }}</textarea>
                                                             </div>
                                                         </div>
                                                         <input type="submit" class="btn btn-primary" value="Simpan Data">
-                                                        <a href="/paketwisata"> 
+                                                        <a href="/destinasiwisata"> 
                                                             <button type="button" class="btn btn-primary">Kembali</button>
                                                         </a>
                                                     </form>
@@ -274,7 +253,7 @@
                                           </div>
                                     </div>
                                         <td>
-                                        <a href="/paketwisata/hapus/{{ $pw->id }}" onclick="return confirm('Anda yakin mau menghapus item ini ?')">
+                                        <a href="/destinasiwisata/hapus/{{ $dw->id_destinasi_wisata }}" onclick="return confirm('Anda yakin mau menghapus item ini ?')">
                                             <button type="button" class="btn btn-danger" style="color:black !important;">Hapus</button></a>
                                         </a>
                                         </td>
@@ -294,13 +273,6 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Az Travel. 2022</span>
-                    </div>
-                </div>
-            </footer>
             <!-- End of Footer -->
 
         </div>
@@ -347,15 +319,3 @@
 </body>
 
 </html>
-© 2022 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
