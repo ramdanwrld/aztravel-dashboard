@@ -43,6 +43,8 @@ Route::get('/destinasiwisata/edit/{id_destinasi_wisata}',[destinasiWisataControl
 Route::get('/destinasiwisata/hapus/{id_destinasi_wisata}', [destinasiWisataController::class, 'hapus']);
 
 Route::get('/konfirmasipesanan', [konfirmasiPesananController::class, 'index']);
+Route::get('/konfirmasipesanan/konfirmasi/{id}', [konfirmasiPesananController::class, 'konfirmasi']);
+Route::get('/konfirmasipesanan/hapus/{id}', [konfirmasiPesananController::class, 'hapus']);
 
 Route::get('/lihatpesanan', [lihatPesananController::class, 'index']);
 

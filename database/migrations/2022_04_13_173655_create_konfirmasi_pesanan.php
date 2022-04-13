@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('nama_lengkap');
             $table->string('no_ktp');
             $table->string('alamat');
+            $table->string('no_hp');
             $table->string('pilihan_paket');
             $table->string('metode_pembayaran');
             $table->string('status');

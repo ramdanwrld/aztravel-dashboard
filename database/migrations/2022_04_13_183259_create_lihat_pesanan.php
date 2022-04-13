@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('user_id');
             $table->string('id_pesanan');
             $table->string('nama_lengkap');
+            $table->integer('no_hp');
             $table->string('pilihan_paket');
         });
     }

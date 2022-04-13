@@ -60,8 +60,8 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="paketwisata">Paket Wisata</a>
                         <a class="collapse-item" href="destinasiwisata">Destinasi</a>
+                        <a class="collapse-item" href="paketwisata">Paket Wisata</a>                      
                         <a class="collapse-item" href="konfirmasipesanan">Konfirmasi Pesanan</a>
                         <a class="collapse-item" href="lihatpesanan">Lihat Pesanan</a>
                     </div>
@@ -124,7 +124,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Selamat Datang Mas Admin</h1>
+                    <h1 class="h3 mb-4 text-gray-800">Selamat DatangAdmin</h1>
                     <h1>DASHBOARD AZ TRAVEL</h1>
                     <br>
                     <div class="row">
