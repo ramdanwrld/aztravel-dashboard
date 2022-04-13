@@ -12,7 +12,7 @@ class paketWisataController extends Controller
 {
     public function index()
 	{
-    	// mengambil data dari table obat
+    	// mengambil data dari table paket_wisata
 		$paket_wisata = paket_wisata::all();
 		$destinasi_wisata = destinasi_wisata::all();
 		$detailwisata = DB::table('detailwisata')
@@ -20,12 +20,12 @@ class paketWisataController extends Controller
 		->join('paket_wisata', 'paket_wisata.id_paket_wisata', '=', 'detailwisata.id_paket_wisata')
 		->get();
 		
-    	// mengirim data obat ke view index
+
 		return view('paketWisata',['paket_wisata' => $paket_wisata,'destinasi_wisata' => $destinasi_wisata,'detailwisata'=>$detailwisata]);
  
 	}
 
-	// method untuk menampilkan view form tambah obat
+	
 	public function tambah()
 	{
  
@@ -33,10 +33,10 @@ class paketWisataController extends Controller
  
 	}
  
-	// method untuk insert data ke table obat
+	// method untuk insert data ke table c
 	public function store(Request $request)
 	{
-		// insert data ke table obat
+		// insert data ke table paket_wisata
 		$this->validate($request,[
 			'nama_paket_wisata' => 'required',
 			'harga_paket_wisata' => 'required',
@@ -52,25 +52,25 @@ class paketWisataController extends Controller
 			'id_destinasi_wisata' => $request->id_destinasi_wisata
 		]);
 
-	// alihkan halaman ke halaman obat
+	// alihkan halaman ke halaman paketwisata
 		return redirect('/paketwisata');
 		
 	}
  
-	// method untuk edit data obat
+	// method untuk edit data paket wisata
 	public function edit($id)
 	{
-		// mengambil data obat berdasarkan id yang dipilih
+		
 		$detailwisata = DB::table('detailwisata')->where('id',$id)->get();
-		// passing data obat yang didapat ke view edit.blade.php
+		
 		return view('paketwisata',['paket_wisata' => $detailwisata]);
 
 	}
  
-	// update data obat
+	// update data paket wisata
 	public function update(Request $request)
 	{
-		// update data obat
+		
 		#dd($request->id_paket_wisata,$request->id_destinasi_wisata,$request->id,$request->nama_paket_wisata,$request->nama_destinasi_wisata);
 
 		DB::table('paket_wisata')->where('id_paket_wisata',$request->id_paket_wisata)->update([
@@ -81,17 +81,17 @@ class paketWisataController extends Controller
 			'id_paket_wisata' => $request->id_paket_wisata,
 			'id_destinasi_wisata' => $request->id_destinasi_wisata
 		]);
-		// alihkan halaman ke halaman obat
+		// alihkan halaman ke halaman paketwisata
 		return redirect('/paketwisata');
 	}
  
-	// method untuk hapus data obat
+	// method untuk hapus data paket wisata
 	public function hapus($id)
 	{
-		// menghapus data obat berdasarkan id yang dipilih
+		// menghapus data paket wisata berdasarkan id yang dipilih
 		DB::table('detailwisata')->where('id',$id)->delete();
 		
-		// alihkan halaman ke halaman obat
+		// alihkan halaman ke halaman paket wisata
 		return redirect('/paketwisata');
 	}
 }

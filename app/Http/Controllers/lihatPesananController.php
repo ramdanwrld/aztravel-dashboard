@@ -13,12 +13,12 @@ class lihatPesananController extends Controller
 {
     public function index()
 	{
-    	// mengambil data dari table obat
+    	// mengambil data dari table konfirmasi pesanan
         $lihat_pesanan = DB::table('konfirmasi_pesanan')
 		->where('status', '=', "SUDAH LUNAS")
                 ->get();
 		
-    	// mengirim data obat ke view index
+    	// mengirim data konfirmasi pesanan ke lihatpesanan.blade.php
 		return view('lihatpesanan',['lihat_pesanan' => $lihat_pesanan]);
  
 	}

@@ -249,7 +249,7 @@
                                     </div>
                                         <td>
                                         <a href="/paketwisata/hapus/{{ $pw->id }}" onclick="return confirm('Anda yakin mau menghapus item ini ?')">
-                                            <button type="button" class="btn btn-danger" style="color:black !important;">Hapus</button></a>
+                                            <button type="button" class="btn btn-danger" style="color:white !important;">Hapus</button></a>
                                         </a>
                                         </td>
                                     </tr>

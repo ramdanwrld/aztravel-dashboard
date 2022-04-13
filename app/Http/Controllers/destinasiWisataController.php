@@ -10,15 +10,15 @@ class destinasiWisataController extends Controller
 {
     public function index()
 	{
-    	// mengambil data dari table obat
+    	// mengambil data dari table destinasi_wisata
 		$destinasi_wisata = destinasi_wisata::all();
  
-    	// mengirim data obat ke view index
+    	// mengirim data destinasiwisata ke view index
 		return view('destinasiwisata',['destinasi_wisata' => $destinasi_wisata]);
  
 	}
  
-	// method untuk menampilkan view form tambah obat
+	
 	public function tambah()
 	{
  
@@ -27,10 +27,10 @@ class destinasiWisataController extends Controller
  
 	}
  
-	// method untuk insert data ke table obat
+	
 	public function store(Request $request)
 	{
-		// insert data ke table obat
+		// insert data ke table destinasi_wisata
 		$this->validate($request,[
 			'nama_destinasi_wisata' => 'required',
 			'lokasi_destinasi_wisata' => 'required'
@@ -41,39 +41,39 @@ class destinasiWisataController extends Controller
 			'lokasi_destinasi_wisata' => $request->lokasi_destinasi_wisata
 		]);
 
-	// alihkan halaman ke halaman obat
+	// alihkan halaman ke halaman destinasi wisata
 		return redirect('/destinasiwisata');
 		
 	}
  
-	// method untuk edit data obat
+	// method untuk edit data destinasi wiwsata
 	public function edit($id_destinasi_wisata)
 	{
-		// mengambil data obat berdasarkan id yang dipilih
+		// mengambil data destinasi wisata berdasarkan id yang dipilih
 		$destinasi_wisata = DB::table('destinasi_wisata')->where('id_destinasi_wisata',$id_destinasi_wisata)->get();
-		// passing data obat yang didapat ke view edit.blade.php
+		// passing data destinasi wisata yang didapat ke view destinasiwisata.blade.php
 		return view('destinasiwisata',['destinasi_wisata' => $destinasi_wisata]);
  
 	}
  
-	// update data obat
+	// update data destinasi wisata
 	public function update(Request $request)
 	{
-		// update data obat
+		// update data destinasi wisata
 		DB::table('destinasi_wisata')->where('id_destinasi_wisata',$request->id_destinasi_wisata)->update([
 			'nama_destinasi_wisata' => $request->nama_destinasi_wisata,
 		]);
-		// alihkan halaman ke halaman obat
+		// alihkan halaman ke halaman destinasi wisata
 		return redirect('/destinasiwisata');
 	}
  
-	// method untuk hapus data obat
+	// method untuk hapus data destiansi wisata
 	public function hapus($id_destinasi_wisata)
 	{
 		// menghapus data obat berdasarkan id yang dipilih
 		DB::table('destinasi_wisata')->where('id_destinasi_wisata',$id_destinasi_wisata)->delete();
 		
-		// alihkan halaman ke halaman obat
+		// alihkan halaman ke halaman destiansi wisata
 		return redirect('/destinasiwisata');
 	}
 }

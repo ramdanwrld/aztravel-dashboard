@@ -167,12 +167,12 @@
                                         <td>
                                             <i ></i>
                                             <a href="/konfirmasipesanan/konfirmasi/{{ $kp->id }}" onclick="return confirm('Konfirmasi Pesanan Ini ?')">
-                                                <button type="button" class="btn btn-success" style="color:black !important;">Konfirmasi</button></a>
+                                                <button type="button" class="btn btn-success" style="color:white !important;">Konfirmasi</button></a>
                                             </a>
                                         </td>
                                         <td>
                                         <a href="/konfirmasipesanan/hapus/{{ $kp->id }}" onclick="return confirm('Anda yakin mau menghapus item ini ?')">
-                                            <button type="button" class="btn btn-danger" style="color:black !important;">Hapus</button></a>
+                                            <button type="button" class="btn btn-danger" style="color:white !important;">Hapus</button></a>
                                         </a>
                                         </td>
                                     </tr>

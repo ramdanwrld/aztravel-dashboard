@@ -12,11 +12,11 @@ class konfirmasiPesananController extends Controller
 {
     public function index()
 	{
-    	// mengambil data dari table obat
+    	// mengambil data dari table konfirmasi_pesanan
         $konfirmasi_pesanan = konfirmasipesanan::all();
 
 		
-    	// mengirim data obat ke view index
+    	// mengirim data konfirmasi pesanan ke view index
 		return view('konfirmasipesanan',['konfirmasi_pesanan' => $konfirmasi_pesanan]);
  
 	}
@@ -25,15 +25,15 @@ class konfirmasiPesananController extends Controller
 			'status' => "SUDAH LUNAS"
 		]);
 
-	// alihkan halaman ke halaman obat
+	// alihkan halaman ke halaman konfirmasi pesanan
 		return redirect('/konfirmasipesanan');
 	}
 	public function hapus($id)
 	{
-		// menghapus data obat berdasarkan id yang dipilih
+		// menghapus data konfirmasi pesanan berdasarkan id yang dipilih
 		DB::table('konfirmasi_pesanan')->where('id',$id)->delete();
 		
-		// alihkan halaman ke halaman obat
+		// alihkan halaman ke halaman konfirmasi pesanan
 		return redirect('/konfirmasipesanan');
 	}
 }

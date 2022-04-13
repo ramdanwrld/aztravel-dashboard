@@ -18,7 +18,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
 </head>
 
 <body id="page-top">
@@ -172,14 +172,13 @@
                         
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead class="table table-borderless">
-                                        <tbody>
+                                <table class="table table-bordered" id="example" width="100%" cellspacing="0">
+                                    <thead>
                                         <tr>
-                                            <th scope="col">nama_destinasi_wisata </th>
-                                            <th scope="col">lokasi_destinasi_wisata </th>
-                                            <th scope="col">Ubah</th>
-                                            <th scope="col">Hapus</th>
+                                            <th>nama_destinasi_wisata </th>
+                                            <th>lokasi_destinasi_wisata </th>
+                                            <th>Ubah</th>
+                                            <th>Hapus</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -227,7 +226,7 @@
                                     </div>
                                         <td>
                                         <a href="/destinasiwisata/hapus/{{ $dw->id_destinasi_wisata }}" onclick="return confirm('Anda yakin mau menghapus item ini ?')">
-                                            <button type="button" class="btn btn-danger" style="color:black !important;">Hapus</button></a>
+                                            <button type="button" class="btn btn-danger" style="color:white !important;">Hapus</button></a>
                                         </a>
                                         </td>
                                     </tr>
@@ -281,6 +280,7 @@
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <!-- Core plugin JavaScript-->
@@ -288,7 +288,11 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
-
+    <script>
+        $(document).ready( function () {
+            $('#example').DataTable();
+            } );
+    </script>
 </body>
 
 </html>

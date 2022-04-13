@@ -124,7 +124,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Selamat DatangAdmin</h1>
+                    <h1 class="h3 mb-4 text-gray-800">Selamat Datang Admin</h1>
                     <h1>DASHBOARD AZ TRAVEL</h1>
                     <br>
                     <div class="row">
