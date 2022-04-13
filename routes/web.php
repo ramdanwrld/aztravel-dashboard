@@ -5,6 +5,8 @@ use App\Http\Controllers\destinasiWisataController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\paketWisataController;
 use App\Http\Controllers\dashboardController;
+use App\Http\Controllers\konfirmasiPesananController;
+use App\Http\Controllers\lihatPesananController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,7 +42,10 @@ Route::post('/destinasiwisata/update', [destinasiWisataController::class, 'updat
 Route::get('/destinasiwisata/edit/{id_destinasi_wisata}',[destinasiWisataController::class, 'edit']);
 Route::get('/destinasiwisata/hapus/{id_destinasi_wisata}', [destinasiWisataController::class, 'hapus']);
 
-Route::get('/konfirmasipesanan', [destinasiWisataController::class, 'index']);
+Route::get('/konfirmasipesanan', [konfirmasiPesananController::class, 'index']);
+
+Route::get('/lihatpesanan', [lihatPesananController::class, 'index']);
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 

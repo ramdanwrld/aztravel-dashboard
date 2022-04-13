@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\paket_wisata;
 use App\Models\destinasi_wisata;
 use App\Models\detailwisata;
-use App\Models\Image;
+
 class paketWisataController extends Controller
 {
     public function index()

@@ -156,48 +156,10 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                <h1 class="h3 mb-2 text-gray-800">Tabel Destinasi Wisata</h1>
+                <h1 class="h3 mb-2 text-gray-800">Tabel Konfirmasi Pesanan</h1>
                     
 
                     <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                Tambah Destinasi Wisata
-                              </button>
-                            <!--<a href="tambahPaketWisata" class="btn btn-primary">Tambah Data</a>-->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h5 class="modal-title" id="exampleModalLabel">TAMBAH DESTINASI WISATA</h5>
-                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form action="/destinasiwisata/store" method="post">
-                                            {{ csrf_field() }}
-                                            <div class="form-group row">
-                                                <label class="col-6">NAMA DESTINASI WISATA </label><br><br>
-                                                <div class="col-6">
-                                                    <input type="text" class="form-control" name="nama_destinasi_wisata" placeholder="">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="col-6">LOKASI DESTINASI WISATA </label><br><br>
-                                                <div class="col-6">
-                                                    <input type="text" class="form-control" name="lokasi_destinasi_wisata" >
-                                                </div>
-                                            </div>
-                                            <input type="submit" class="btn btn-primary" value="Simpan Data">
-                                            <a href="/destinasiwisata"> 
-                                                <button type="button" class="btn btn-primary">Kembali</button>
-                                            </a>
-                                        </form>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                        </div>
                         
                         <div class="card-body">
                             <div class="table-responsive">
@@ -205,60 +167,21 @@
                                     <thead class="table table-borderless">
                                         <tbody>
                                         <tr>
-                                            <th scope="col">nama_destinasi_wisata </th>
-                                            <th scope="col">lokasi_destinasi_wisata </th>
-                                            <th scope="col">Ubah</th>
-                                            <th scope="col">Hapus</th>
+                                            <th scope="col">user_id </th>
+                                            <th scope="col">id_pesanan</th>
+                                            <th scope="col">nama_lengkap </th>
+                                            <th scope="col">pilihan_paket</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($destinasi_wisata as $dw)
+                                    @foreach($lihat_pesanan as $lp)
                                     <tr>
-                                        <td>{{ $dw->nama_destinasi_wisata }}</td>
-                                        <td>{{ $dw->lokasi_destinasi_wisata }}</td>
+                                        <td>{{ $lp->user_id }}</td>
+                                        <td>{{ $lp->id_pesanan }}</td>
+                                        <td>{{ $lp->nama_lengkap }}</td>
+                                        <td>{{ $lp->pilihan_paket }}</td>
                                         <td>
-                                            <a button type="button" class="btn btn-warning" style="color:black !important;"
-                                            data-bs-toggle="modal" data-bs-target="#editModal{{ $dw->id_destinasi_wisata }}">Edit</button></a>
-                                        </td>
-                                        <div class="modal fade" id="editModal{{ $dw->id_destinasi_wisata }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                              <div class="modal-content">
-                                                <div class="modal-header">
-                                                  <h5 class="modal-title" id="exampleModalLabel">EDIT</h5>
-                                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form action="/destinasiwisata/update" method="post">
-                                                        {{ csrf_field() }}
-                                                        <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">NAMA DESTINASI WISATA </label><br><br>
-                                                            <input type="hidden" class="form-control" name="id_destinasi_wisata" value={{ $dw->id_destinasi_wisata }}>
-                                                            <div class="col-sm-10">
-                                                                <input type="text" class="form-control" name="nama_destinasi_wisata" value={{ $dw->nama_destinasi_wisata }}>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">LOKASI DESTINASI WISATA </label><br><br>
-                                                            <input type="hidden" class="form-control" name="id_destinasi_wisata" value={{ $dw->id_destinasi_wisata }}>
-                                                            <div class="col-sm-10">
-                                                                <textarea class="form-control" name="lokasi_destinasi_wisata">{{ $dw->lokasi_destinasi_wisata }}</textarea>
-                                                            </div>
-                                                        </div>
-                                                        <input type="submit" class="btn btn-primary" value="Simpan Data">
-                                                        <a href="/destinasiwisata"> 
-                                                            <button type="button" class="btn btn-primary">Kembali</button>
-                                                        </a>
-                                                    </form>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                    </div>
-                                        <td>
-                                        <a href="/destinasiwisata/hapus/{{ $dw->id_destinasi_wisata }}" onclick="return confirm('Anda yakin mau menghapus item ini ?')">
-                                            <button type="button" class="btn btn-danger" style="color:black !important;">Hapus</button></a>
-                                        </a>
-                                        </td>
+                                            
                                     </tr>
                                     @endforeach
                                     </tbody>
