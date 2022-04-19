@@ -70,7 +70,7 @@ class destinasiWisataController extends Controller
 	// method untuk hapus data destiansi wisata
 	public function hapus($id_destinasi_wisata)
 	{
-		// menghapus data obat berdasarkan id yang dipilih
+		// menghapus data destinasi wisata berdasarkan id yang dipilih
 		DB::table('destinasi_wisata')->where('id_destinasi_wisata',$id_destinasi_wisata)->delete();
 		
 		// alihkan halaman ke halaman destiansi wisata

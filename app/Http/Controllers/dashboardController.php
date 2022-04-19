@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\paket_wisata;
 use App\Models\destinasi_wisata;
 use Illuminate\Support\Facades\DB;
+use App\Models\konfirmasipesanan;
+use App\Models\lihatpesanan;
 
 class dashboardController extends Controller
 {
