@@ -7,7 +7,7 @@ use App\Http\Controllers\paketWisataController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\konfirmasiPesananController;
 use App\Http\Controllers\lihatPesananController;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
